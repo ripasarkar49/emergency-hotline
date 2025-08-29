@@ -63,13 +63,6 @@ document.querySelectorAll(".heartBtn").forEach((btn) => {
   });
 });
 
-// heart button click
-document.querySelectorAll(".copyBtn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    copyCount++;
-    copyCountEl.textContent = copyCount;
-  });
-});
 
 //   call button click
 
@@ -98,7 +91,22 @@ document.querySelectorAll(".service-card").forEach((card) => {
     li.textContent = ` ${serviceName} - ${serviceNumber} at ${time}`;
     historyList.appendChild(li);
   });
+
+    card.querySelector(".copyBtn").addEventListener("click", () => {
+          navigator.clipboard.writeText(serviceNumber);
+          alert(`Copied ${serviceNumber}`);
+        });
 });
+// copy button click
+document.querySelectorAll(".copyBtn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    copyCount++;
+    copyCountEl.textContent = copyCount;
+  });
+});
+
+
+
 
 // Clear History
 clearHistoryBtn.addEventListener("click", () => {
